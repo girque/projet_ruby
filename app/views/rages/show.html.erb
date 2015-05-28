@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @rage.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @rage.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@rage.picture_url, :width => 600) if @rage.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_rage_path(@rage) %> |
+<%= link_to 'Back', rages_path %>
