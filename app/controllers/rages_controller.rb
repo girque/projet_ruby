@@ -1,10 +1,18 @@
 class RagesController < ApplicationController
   before_action :set_rage, only: [:show, :edit, :update, :destroy]
+  before_filter :check_user_logged_in!, :except => [:show, :index]
 
   # GET /rages
   # GET /rages.json
   def index
-    @rages = Rage.all
+    if current_user
+      @rages = Rage.where(user_id: current_user.id)
+      if @rages.nil?
+       @rages = Array.new
+      end
+    else
+      @rages = Rage.all
+    end
   end
 
   # GET /rages/1
@@ -70,5 +78,8 @@ class RagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rage_params
       params.require(:rage).permit(:title, :description, :picture)
+    end
+    def check_user_logged_in! # if admin is not logged in, user must be logged in
+        authenticate_user! 
     end
 end
