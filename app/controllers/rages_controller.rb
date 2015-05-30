@@ -18,11 +18,14 @@ class RagesController < ApplicationController
   # GET /rages/1
   # GET /rages/1.json
   def show
+    @rage = Rage.find(params[:id])
+    @proof_attachments = @rage.proof_attachments.all
   end
 
   # GET /rages/new
   def new
     @rage = Rage.new
+    @proof_attachment = @rage.proof_attachments.build
   end
 
   # GET /rages/1/edit
@@ -33,11 +36,15 @@ class RagesController < ApplicationController
   # POST /rages.json
   def create
     @rage = Rage.new(rage_params)
-
+    @rage.user_id = current_user.id
     respond_to do |format|
       if @rage.save
-        format.html { redirect_to @rage, notice: 'Rage was successfully created.' }
-        format.json { render :show, status: :created, location: @rage }
+       params[:proof_attachments]['path'].each do |a|
+          @proof_attachment = @rage.proof_attachments.create!(:path => a, :rage_id => @rage.id)
+       end
+       format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
+       format.json { render :show, status: :ok, location: @rage }
+
       else
         format.html { render :new }
         format.json { render json: @rage.errors, status: :unprocessable_entity }
@@ -75,9 +82,10 @@ class RagesController < ApplicationController
       @rage = Rage.find(params[:id])
     end
 
+private
     # Never trust parameters from the scary internet, only allow the white list through.
     def rage_params
-      params.require(:rage).permit(:title, :description, :picture)
+      params.require(:rage).permit(:title, :description, :picture, :user_id, proof_attachments_attributes: [:id, :rage_id, :path])
     end
     def check_user_logged_in! # if admin is not logged in, user must be logged in
         authenticate_user! 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :dysfunctions
+  resources :proof_attachments
   resources :rages
   devise_for :users
   root :to => redirect('/rages')
