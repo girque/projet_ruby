@@ -1,4 +1,4 @@
-<%= form_for(@rage, :html => { :multipart => true }) do |f| %>
+<%= form_for @rage do |f| %>
   <% if @rage.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rage.errors.count, "error") %> prohibited this rage from being saved:</h2>
@@ -9,7 +9,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>   
+  <% end %>
 
   <div class="field">
     <%= f.label :title %><br>
@@ -23,15 +23,16 @@
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
   </div>
+  <div class="field>
+   <%= f.label :user_id %><br>
+   <%= f.text_field :user_id %>
+  </div>
+  <div class="field>
+   <%= f.label :dysfunctionfiles %><br>
+   <%= f.file_field :files, multiple: true %>
+  </div>
 
-   <%= f.fields_for :proof_attachments do |p| %>
-     <div class="field">
-       <%= p.label :file %><br>
-       <%= p.file_field :path, :multiple => true, name: "proof_attachments[path][]" %>
-     </div>
-   <% end %>
-
-   <div class="actions">
-     <%= f.submit %>
-   </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

@@ -15,5 +15,10 @@
   <%= image_tag(@rage.picture_url, :width => 600) if @rage.picture.present? %>
 </p>
 
+<% @proof_attachments.each do |p| %>
+  <%= File.basename(p.path) %>
+  <%= link_to "Edit proof attachment", edit_proof_attachment_path(p) %>
+<% end %>
+
 <%= link_to 'Edit', edit_rage_path(@rage) %> |
 <%= link_to 'Back', rages_path %>

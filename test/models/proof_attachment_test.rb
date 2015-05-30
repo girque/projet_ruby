@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DysfunctionTest < ActiveSupport::TestCase
+class ProofAttachmentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

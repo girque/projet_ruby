@@ -1,2 +1,0 @@
-module DysfunctionsHelper
-end

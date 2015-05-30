@@ -1,0 +1,22 @@
+<%= image_tag @proof_attachment.avatar %>
+<%= form_for(@proof_attachment) do |f| %>
+  <% if @proof_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proof_attachment.errors.count, "error") %> prohibited this proof_attachment from being saved:</h2>
+
+      <ul>
+      <% @proof_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fichier %><br>
+    <%= f.file_field :path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
