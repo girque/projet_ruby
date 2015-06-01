@@ -7,7 +7,7 @@
 
 <p>
   <strong>Path:</strong>
-  <%= link_to File.basename(URI(@proof_attachment.path_url).path), @proof_attachment.path_url %>
+  <%= File.basename(URI(@proof_attachment.path_url).path)%>
 </p>
 
 <%= link_to 'Edit', edit_proof_attachment_path(@proof_attachment) %> |

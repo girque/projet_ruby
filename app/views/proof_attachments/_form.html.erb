@@ -1,4 +1,4 @@
-<%= image_tag @proof_attachment.avatar %>
+<%= image_tag @proof_attachment.path %>
 <%= form_for(@proof_attachment) do |f| %>
   <% if @proof_attachment.errors.any? %>
     <div id="error_explanation">

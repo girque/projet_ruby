@@ -1,4 +1,4 @@
 class ProofAttachment < ActiveRecord::Base
-  mount_uploader :path, FileUploader
+  mount_uploader :file, FileUploader
   belongs_to :rage
 end

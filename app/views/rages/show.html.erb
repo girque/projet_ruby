@@ -16,8 +16,9 @@
 </p>
 
 <% @proof_attachments.each do |p| %>
-  <%= File.basename(p.path) %>
+  <%= link_to 'Download ' + File.basename(URI(p.path_url).path), p.path_url %>
   <%= link_to "Edit proof attachment", edit_proof_attachment_path(p) %>
+  <br>
 <% end %>
 
 <%= link_to 'Edit', edit_rage_path(@rage) %> |
