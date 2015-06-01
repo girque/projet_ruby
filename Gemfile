@@ -55,4 +55,3 @@ group :development, :test do
   #rights management bundle
   gem 'cancan'
 end
-

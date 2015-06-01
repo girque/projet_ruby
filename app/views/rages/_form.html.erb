@@ -21,13 +21,13 @@
   </div>
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, :required => true %>
   </div>
 
    <%= f.fields_for :proof_attachments do |p| %>
      <div class="field">
        <%= p.label :file %><br>
-       <%= p.file_field :path, :multiple => true, name: "proof_attachments[path][]" %>
+       <%= p.file_field :path, :multiple => true, :required => true ,name: "proof_attachments[path][]" %>
      </div>
    <% end %>
 
