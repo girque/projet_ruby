@@ -12833,3 +12833,11 @@ Processing by RagesController#new as HTML
   Rendered rages/_form.html.erb (5.0ms)
   Rendered rages/new.html.erb within layouts/application (6.8ms)
 Completed 200 OK in 62ms (Views: 56.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-15 11:14:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RagesController#index as HTML
+  [1m[35mRage Load (0.5ms)[0m  SELECT "rages".* FROM "rages"
+  Rendered rages/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 178ms (Views: 161.5ms | ActiveRecord: 1.1ms)
