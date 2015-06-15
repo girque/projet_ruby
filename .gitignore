@@ -8,6 +8,11 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+log/*.log
+config/database.yml
+
+##rubyMine
+.idea/
 
 ## Specific to RubyMotion:
 .dat*
