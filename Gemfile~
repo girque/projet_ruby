@@ -54,6 +54,9 @@ group :development, :test do
 
   #rights management bundle
   gem 'cancan'
+
+  #controll admin access
+  gem 'activeadmin'
   
 end
 

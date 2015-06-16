@@ -1,0 +1,4 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_myrage_path(@myrage) %> |
+<%= link_to 'Back', myrages_path %>

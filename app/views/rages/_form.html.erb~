@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <% if @rage.user_id == @user_id %>
+  <% if @user_id.admin? %>
 	  <div class="field">
 	    <%= f.label :title %><br>
 	    <%= f.text_field :title %>
