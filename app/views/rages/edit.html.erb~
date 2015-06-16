@@ -1,7 +1,0 @@
-<h1>Editing Rage</h1>
-
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @rage %> |
-<%= link_to 'Back', rages_path %>
