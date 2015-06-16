@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :dysfunctions
   resources :rages
   devise_for :users
+  resources :participations
   root :to => redirect('/rages')
-
+  
 
 #  get 'user/:id'
   # The priority is based upon order of creation: first created -> highest priority.

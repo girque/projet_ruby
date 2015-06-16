@@ -25,7 +25,8 @@
         <li class="active"><a href="/rages">Rages</a></li>
 <% if user_signed_in? %>
 	<li class="active"><a href="/myrages">Mes rages</a></li>
-<% end? %>
+	<li class="active"><a href="/myrages">Mes participations</a></li>
+<% end %>
       </ul>
     </div>
   </div>

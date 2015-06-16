@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing my participations</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+        <tr>
+          <td><%= @participationList.id %></td>
+          <td><%= @participationList.user_id %></td>
+        </tr>
+   
+    <% end %>
+  </tbody>
+
+</table>
