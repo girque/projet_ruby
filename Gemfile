@@ -55,3 +55,13 @@ group :development, :test do
   #rights management bundle
   gem 'cancan'
 end
+
+
+group :development do
+  gem 'rspec-rails', '~> 3.0', require: "rspec/rails" 
+end
+
+group :test do
+  gem 'rspec', '~> 3.0'
+  gem 'rspec-rails', '~> 3.0', require: "rspec/rails" 
+end
