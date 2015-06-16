@@ -2,7 +2,11 @@ class ParticipationsController < ApplicationController
 
   def index
     if current_user
-	@participations = Participation.find(user_id = current_user.id)
+	participationList = Participation.where(user_id: current_user.id)
+
+        participationList.find_each do |participation|
+           @rageList = Rage.find(participation.rage_id)
+        end
     end
   end
 end

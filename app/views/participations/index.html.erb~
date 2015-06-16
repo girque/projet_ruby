@@ -14,13 +14,12 @@
   </thead>
 
   <tbody>
-   
-        <tr>
-          <td><%= @participationList.id %></td>
-          <td><%= @participationList.user_id %></td>
-        </tr>
-   
-    <% end %>
+    <% @rageList.each do |rage| %>
+      <tr>
+        <td><%= rage.id %></td>
+        <td><%= rage.title %></td>
+      </tr>
+    <% end %> 
   </tbody>
 
 </table>

@@ -6,11 +6,7 @@ class RagesController < ApplicationController
   # GET /rages.json
   def index
     if current_user
-      @rages = Rage.where(user_id: current_user.id)
       @user = User.find(current_user.id)
-      if @rages.nil?
-       @rages = Array.new
-      end
       if @user.admin?
         @admin = true
       end
@@ -74,6 +70,16 @@ class RagesController < ApplicationController
       format.html { redirect_to rages_url, notice: 'Rage was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  #create participation
+  def participate
+    @participation = Participation.new(participation_params)
+    @participation.user_id = current_user.id
+    @participation.rage_id = @rage.id
+    @participation.isAuthor = false
+
+
   end
 
   private

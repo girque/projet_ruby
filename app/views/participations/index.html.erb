@@ -14,12 +14,16 @@
   </thead>
 
   <tbody>
-   
-        <tr>
-          <td><%= @participationList.id %></td>
-          <td><%= @participationList.user_id %></td>
-        </tr>
-   
+    <% @rageList.each do |rage| %>
+      <tr>
+        <td><%= rage.title %></td>
+        <td><%= rage.description %></td>
+        <td><%= rage.picture %></td>
+	<% if user_signed_in? %>
+		<td><%= link_to 'Show', rage %></td>
+	<% end %>
+      </tr>
+    <% end %> 
   </tbody>
 
 </table>

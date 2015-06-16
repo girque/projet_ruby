@@ -18,6 +18,9 @@
         <td><%= rage.title %></td>
         <td><%= rage.description %></td>
         <td><%= rage.picture %></td>
+	<% if user_signed_in? %>
+		<td><%= link_to 'Participate', rage, method: :follow, data: { confirm: 'Are you sure?' }%></td>
+	<% end %>
 	<% if @admin %>
 		<td><%= link_to 'Show', rage %></td>
 		<td><%= link_to 'Destroy', rage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
