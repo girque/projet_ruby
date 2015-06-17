@@ -2,19 +2,16 @@ class RagesController < ApplicationController
   before_action :set_rage, only: [:show, :edit, :update, :destroy]
   before_filter :check_user_logged_in!, :except => [:show, :index]
 
-require 'uri'
-
   # GET /rages
   # GET /rages.json
   def index
     if current_user
-      @rages = Rage.where(user_id: current_user.id)
-      if @rages.nil?
-       @rages = Array.new
+      @user = User.find(current_user.id)
+      if @user.admin?
+        @admin = true
       end
-    else
-      @rages = Rage.all
     end
+    @rages = Rage.all
   end
 
   # GET /rages/1
@@ -27,7 +24,6 @@ require 'uri'
   # GET /rages/new
   def new
     @rage = Rage.new
-    @proof_attachment = @rage.proof_attachments.build
   end
 
   # GET /rages/1/edit
@@ -38,15 +34,11 @@ require 'uri'
   # POST /rages.json
   def create
     @rage = Rage.new(rage_params)
-    @rage.user_id = current_user.id
+
     respond_to do |format|
       if @rage.save
-       params[:proof_attachments]['path'].each do |a|
-          @proof_attachment = @rage.proof_attachments.create!(:path => a, :rage_id => @rage.id)
-       end
-       format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
-       format.json { render :show, status: :ok, location: @rage }
-
+        format.html { redirect_to @rage, notice: 'Rage was successfully created.' }
+        format.json { render :show, status: :created, location: @rage }
       else
         format.html { render :new }
         format.json { render json: @rage.errors, status: :unprocessable_entity }
@@ -59,14 +51,10 @@ require 'uri'
   def update
     respond_to do |format|
       if @rage.update(rage_params)
-params[:proof_attachments]['path'].each do |a|
-          @proof_attachment = @rage.proof_attachments.create!(:path => a, :rage_id => @rage.id)
-       end
-       format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
-       format.json { render :show, status: :ok, location: @rage }
-
+        format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
+        format.json { render :show, status: :ok, location: @rage }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @rage.errors, status: :unprocessable_entity }
       end
     end
@@ -76,6 +64,11 @@ params[:proof_attachments]['path'].each do |a|
   # DELETE /rages/1.json
   def destroy
     @rage.destroy
+    participationList = Participation.where(rage_id: @rage.id)
+    participationList.find_each do |participation|
+      participation.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to rages_url, notice: 'Rage was successfully destroyed.' }
       format.json { head :no_content }
@@ -88,10 +81,9 @@ params[:proof_attachments]['path'].each do |a|
       @rage = Rage.find(params[:id])
     end
 
-private
     # Never trust parameters from the scary internet, only allow the white list through.
     def rage_params
-      params.require(:rage).permit(:title, :description, :picture, :user_id)
+      params.require(:rage).permit(:title, :description, :picture)
     end
     def check_user_logged_in! # if admin is not logged in, user must be logged in
         authenticate_user! 
