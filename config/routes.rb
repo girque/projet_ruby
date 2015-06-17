@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :participations
   root :to => redirect('/rages')
   
+  #get 'participations/' => 'participations#create', as: :participate_rage
 
 #  get 'user/:id'
   # The priority is based upon order of creation: first created -> highest priority.

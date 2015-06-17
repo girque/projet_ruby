@@ -76,6 +76,12 @@ class RagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  #create participation
+  def participate
+    @Participation = Participation.new(:id, :user_id => current_user.id, :rage_id => @rage.id, :isAuthor => false)
+    @Participation.save
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
