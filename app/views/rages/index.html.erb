@@ -20,6 +20,9 @@
         <td><%= rage.picture %></td>
 	<% if user_signed_in? %>
 		<td><%= link_to 'Participate', participations_path(:rage_id => rage.id), method: :create %></td>
+        <% if rage.state.to_s == 'draft'.to_s %>
+            <td><%= link_to 'Publish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 	<% end %>
 	<% if @admin %>
 		<td><%= link_to 'Show', rage %></td>

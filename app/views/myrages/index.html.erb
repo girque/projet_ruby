@@ -22,6 +22,10 @@
 		<td><%= link_to 'Show', rage %></td>
 		<td><%= link_to 'Edit', edit_rage_path(rage) %></td>
 		<td><%= link_to 'Destroy', rage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if rage.state.to_s == 'draft'.to_s %>
+        <td><%= link_to 'Publish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 	<% end %>
       </tr>
     <% end %>

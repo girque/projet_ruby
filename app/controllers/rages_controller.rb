@@ -34,7 +34,7 @@ class RagesController < ApplicationController
   # POST /rages.json
   def create
     @rage = Rage.new(rage_params)
-
+    @rage.state = 'draft'
     respond_to do |format|
       if @rage.save
         format.html { redirect_to @rage, notice: 'Rage was successfully created.' }
@@ -71,6 +71,30 @@ class RagesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to rages_url, notice: 'Rage was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # PUBLISH /rages/1/publish
+  def publish
+
+    @rage = Rage.find(params[:id])
+
+    if current_user.id != @rage.user_id
+
+      respond_to do |format|
+        format.html { redirect_to rages_url, notice: 'Unbale to publish rage.' }
+        format.json { head :no_content }
+      end
+
+      return
+
+    end
+
+    @rage.update_attribute(:state, 'published')
+
+    respond_to do |format|
+      format.html { redirect_to rages_url, notice: 'Rage was successfully published.' }
       format.json { head :no_content }
     end
   end
