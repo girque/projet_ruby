@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150616105732) do
-=======
-ActiveRecord::Schema.define(version: 20150530113509) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +23,6 @@ ActiveRecord::Schema.define(version: 20150530113509) do
     t.integer  "user_id"
   end
 
-<<<<<<< HEAD
   create_table "myrages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,11 +32,13 @@ ActiveRecord::Schema.define(version: 20150530113509) do
     t.integer  "user_id"
     t.integer  "rage_id"
     t.boolean  "isAuthor"
-=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "proof_attachments", force: :cascade do |t|
     t.integer  "rage_id"
     t.string   "path"
->>>>>>> master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150530113509) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "state"
   end
 
   create_table "users", force: :cascade do |t|
