@@ -17761,9 +17761,90 @@ Processing by ParticipationsController#index as HTML
   [1m[35mParticipation Load (0.6ms)[0m  SELECT  "participations".* FROM "participations" WHERE "participations"."user_id" = $1  ORDER BY "participations"."id" ASC LIMIT 1000  [["user_id", 2]]
   Rendered participations/index.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 113ms (Views: 108.0ms | ActiveRecord: 1.1ms)
+<<<<<<< HEAD
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:03:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (24.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.1) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.1) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/mika/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mika/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mika/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.3ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (56.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAdminToUser (20150616072237)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (254.1ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150616072237"]]
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMyrages (20150616092741)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (39.8ms)[0m  [1mCREATE TABLE "myrages" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150616092741"]]
+  [1m[36m (11.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateParticipations (20150616105732)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (31.5ms)[0m  [1mCREATE TABLE "participations" ("id" serial primary key, "user_id" integer, "rage_id" integer, "isAuthor" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150616105732"]]
+  [1m[36m (11.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36m (3.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17775,7 +17856,23 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+<<<<<<< HEAD
+  [1m[35m (5.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
   [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17786,8 +17883,13 @@ WHERE c.contype = 'f'
   AND t1.relname = 'myrages'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
+<<<<<<< HEAD
+[0m
+  [1m[35m (6.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
 
   [1m[36m (3.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17798,8 +17900,13 @@ WHERE c.contype = 'f'
   AND t1.relname = 'participations'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
+<<<<<<< HEAD
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
 [0m
   [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17810,8 +17917,13 @@ WHERE c.contype = 'f'
   AND t1.relname = 'proof_attachments'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
+<<<<<<< HEAD
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
 
   [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17822,8 +17934,13 @@ WHERE c.contype = 'f'
   AND t1.relname = 'rages'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
+<<<<<<< HEAD
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+=======
 [0m
   [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -17834,6 +17951,241 @@ WHERE c.contype = 'f'
   AND t1.relname = 'users'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
+<<<<<<< HEAD
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:04:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:04:09 +0200
+Processing by RagesController#index as HTML
+  [1m[35mRage Load (8.2ms)[0m  SELECT "rages".* FROM "rages"
+  Rendered rages/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 1482ms (Views: 1405.7ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/assets/myrages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-17 14:04:10 +0200
+
+
+Started GET "/assets/scaffolds.self-0977140b00878f808fe09c1cdf657f0b343d57d6b8cc1ec627e33631b164852e.css?body=1" for 127.0.0.1 at 2015-06-17 14:04:10 +0200
+
+
+Started GET "/assets/myrages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-06-17 14:04:10 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:04:42 +0200
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:04:42 +0200
+Processing by RagesController#index as HTML
+  [1m[36mRage Load (0.4ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
+  Rendered rages/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:04:43 +0200
+Processing by RagesController#index as HTML
+  [1m[35mRage Load (0.6ms)[0m  SELECT "rages".* FROM "rages"
+  Rendered rages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:05:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:05:08 +0200
+Processing by RagesController#index as HTML
+  [1m[35mRage Load (0.6ms)[0m  SELECT "rages".* FROM "rages"
+  Rendered rages/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 237ms (Views: 211.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-17 14:05:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 186ms (Views: 163.4ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-06-17 14:05:15 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sWHP2GCcqCz/0cx6KkfXrS8xEn1+0q3N2HcYivk7digU61iKTQJpwNZS3mfqxBNkNhQZakl/g0xBvrJwppmYiQ==", "user"=>{"email"=>"mickaeljean83@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mickaeljean83@gmail.com"]]
+Completed 401 Unauthorized in 225ms (ActiveRecord: 0.9ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sWHP2GCcqCz/0cx6KkfXrS8xEn1+0q3N2HcYivk7digU61iKTQJpwNZS3mfqxBNkNhQZakl/g0xBvrJwppmYiQ==", "user"=>{"email"=>"mickaeljean83@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 187ms (Views: 77.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-06-17 14:05:19 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-06-17 14:05:38 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dy2yhMwDz/tf8UQE9ctn1snStB5+DBvBL59HXFc8N5yqpyXW4Z0OF3ZyVhk1SKMf0Pe/CUmhNUC2Vu2mCJ7ZPQ==", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'a@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/registrations/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 181ms (Views: 47.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-17 14:05:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /home/mika/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/devise-3.5.1/app/views/devise/sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 54ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-06-17 14:05:49 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+GjCJhKxioCarxaS+AQvXPCqezESk0ARg5LjqqriBANd4lV0Py9LbLMsBI84h+uV6Y9wJiU+bpAaW0lQ9UDqog==", "user"=>{"email"=>"mickaeljean83@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mickaeljean83@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2015-06-17 12:05:49.800335"], ["sign_in_count", 2], ["updated_at", "2015-06-17 12:05:49.802070"], ["id", 1]]
+  [1m[35m (16.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:05:49 +0200
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:05:49 +0200
+Processing by RagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.4ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
+  Rendered rages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 75ms (Views: 46.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:52 +0200
+Processing by MyragesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRage Load (0.4ms)[0m  SELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 51ms (Views: 47.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/participations" for 127.0.0.1 at 2015-06-17 14:05:53 +0200
+Processing by ParticipationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mParticipation Load (0.8ms)[0m  SELECT  "participations".* FROM "participations" WHERE "participations"."user_id" = $1  ORDER BY "participations"."id" ASC LIMIT 1000  [["user_id", 1]]
+  Rendered participations/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 70ms (Views: 58.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:54 +0200
+Processing by MyragesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.2ms)[0m  [1mSELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 56ms (Views: 52.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:54 +0200
+Processing by MyragesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRage Load (0.5ms)[0m  SELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 50ms (Views: 46.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:05:55 +0200
+Processing by RagesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.6ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
+  Rendered rages/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 49ms (Views: 44.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:55 +0200
+Processing by MyragesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRage Load (0.6ms)[0m  SELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 44.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/participations" for 127.0.0.1 at 2015-06-17 14:05:55 +0200
+Processing by ParticipationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mParticipation Load (0.6ms)[0m  SELECT  "participations".* FROM "participations" WHERE "participations"."user_id" = $1  ORDER BY "participations"."id" ASC LIMIT 1000  [["user_id", 1]]
+  Rendered participations/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:56 +0200
+Processing by MyragesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.4ms)[0m  [1mSELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 41ms (Views: 37.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:56 +0200
+Processing by MyragesController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRage Load (0.5ms)[0m  SELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 63ms (Views: 57.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:57 +0200
+Processing by MyragesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.4ms)[0m  [1mSELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 49ms (Views: 44.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/participations" for 127.0.0.1 at 2015-06-17 14:05:57 +0200
+Processing by ParticipationsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mParticipation Load (0.3ms)[0m  [1mSELECT  "participations".* FROM "participations" WHERE "participations"."user_id" = $1  ORDER BY "participations"."id" ASC LIMIT 1000[0m  [["user_id", 1]]
+  Rendered participations/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:05:57 +0200
+Processing by MyragesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRage Load (0.3ms)[0m  SELECT "rages".* FROM "rages" WHERE "rages"."user_id" = $1  [["user_id", 1]]
+  Rendered myrages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 72ms (Views: 65.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-17 14:05:58 +0200
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-17 14:05:58 +0200
+Processing by RagesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (0.5ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
+  Rendered rages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 63ms (Views: 59.5ms | ActiveRecord: 1.2ms)
+=======
 
 
 
@@ -17908,6 +18260,7 @@ Processing by RagesController#index as HTML
   [1m[36mRage Load (0.3ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
   Rendered rages/index.html.erb within layouts/application (2.2ms)
 Completed 200 OK in 52ms (Views: 48.3ms | ActiveRecord: 0.9ms)
+<<<<<<< HEAD
 
 
 Started GET "/myrages" for 127.0.0.1 at 2015-06-17 14:17:33 +0200
@@ -18654,3 +19007,6 @@ Processing by RagesController#index as HTML
   [1m[35mRage Load (0.3ms)[0m  SELECT "rages".* FROM "rages"
   Rendered rages/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.7ms)
+=======
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
+>>>>>>> d09451c46a9c9c5e2dd470352e5033ec1518d331
