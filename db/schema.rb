@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150617093914) do
+=======
+ActiveRecord::Schema.define(version: 20150616105732) do
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150617093914) do
     t.integer  "user_id"
   end
 
+<<<<<<< HEAD
   create_table "messages", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
@@ -33,6 +38,8 @@ ActiveRecord::Schema.define(version: 20150617093914) do
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+=======
+>>>>>>> d0fd3a86c36ae7a8305e3ed988fb6b99def4b6a3
   create_table "myrages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150617093914) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "state"
   end
 
   create_table "users", force: :cascade do |t|
