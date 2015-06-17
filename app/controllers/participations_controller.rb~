@@ -19,7 +19,7 @@ class ParticipationsController < ApplicationController
 
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to Participation, notice: 'Participation was successfully recorded.' }
+        format.html { redirect_to @rage, notice: 'Participation was successfully recorded.' }
         #format.json { render :show, status: :created, location: @rage }
       else
         format.html { render :index }

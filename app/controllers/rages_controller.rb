@@ -64,6 +64,11 @@ class RagesController < ApplicationController
   # DELETE /rages/1.json
   def destroy
     @rage.destroy
+    participationList = Participation.where(rage_id: @rage.id)
+    participationList.find_each do |participation|
+      participation.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to rages_url, notice: 'Rage was successfully destroyed.' }
       format.json { head :no_content }

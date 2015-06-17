@@ -19,7 +19,7 @@
         <td><%= rage.description %></td>
         <td><%= rage.picture %></td>
 	<% if user_signed_in? %>
-		<td><%= link_to 'Participate', participations_path(:rage_id => rage.id), method: :create %></td>
+		<td><%= link_to 'Participate', participations_path(rage.id), method: :create %></td>
 	<% end %>
 	<% if @admin %>
 		<td><%= link_to 'Show', rage %></td>
