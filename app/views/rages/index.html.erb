@@ -27,6 +27,12 @@
 	<% if @admin %>
 		<td><%= link_to 'Show', rage %></td>
 		<td><%= link_to 'Destroy', rage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if rage.state.to_s == 'published'.to_s %>
+                <td></td>
+            <td><%= link_to 'DemandeModif', askModif_path(rage), data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Rejected', rejectedRage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
 	<% end %>
       </tr>
     <% end %>

@@ -34,6 +34,7 @@ class RagesController < ApplicationController
   # POST /rages.json
   def create
     @rage = Rage.new(rage_params)
+    @rage.user_id = current_user.id
     @rage.state = 'draft'
     respond_to do |format|
       if @rage.save
