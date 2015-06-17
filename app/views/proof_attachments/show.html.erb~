@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rage:</strong>
+  <%= @proof_attachment.rage_id %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= File.basename(URI(@proof_attachment.path_url).path)%>
+</p>
+
+<%= link_to 'Edit', edit_proof_attachment_path(@proof_attachment) %> |
+<%= link_to 'Back', proof_attachments_path %>
