@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150616105732) do
-=======
-ActiveRecord::Schema.define(version: 20150530113509) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 20150617093914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +23,16 @@ ActiveRecord::Schema.define(version: 20150530113509) do
     t.integer  "user_id"
   end
 
-<<<<<<< HEAD
+  create_table "messages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
   create_table "myrages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,11 +42,13 @@ ActiveRecord::Schema.define(version: 20150530113509) do
     t.integer  "user_id"
     t.integer  "rage_id"
     t.boolean  "isAuthor"
-=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "proof_attachments", force: :cascade do |t|
     t.integer  "rage_id"
     t.string   "path"
->>>>>>> master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,4 +81,5 @@ ActiveRecord::Schema.define(version: 20150530113509) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "messages", "users"
 end
