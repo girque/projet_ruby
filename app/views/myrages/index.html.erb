@@ -26,6 +26,9 @@
         <% if rage.state.to_s == 'draft'.to_s %>
         <td><%= link_to 'Publish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <% if rage.state.to_s == 'waitingAmelioration'.to_s %>
+            <td><%= link_to 'Republish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 	<% end %>
       </tr>
     <% end %>
