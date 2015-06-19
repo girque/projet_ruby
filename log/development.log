@@ -21904,3 +21904,48 @@ Processing by RagesController#index as HTML
   [1m[35mRage Load (0.6ms)[0m  SELECT "rages".* FROM "rages"
   Rendered rages/index.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 59ms (Views: 46.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/rages" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+Processing by RagesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mRage Load (1.0ms)[0m  [1mSELECT "rages".* FROM "rages"[0m
+  Rendered rages/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/myrages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/rages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/proof_attachments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/application.self-5beb12bc18b9be7168ac37349124f55738fdfdce9e525383f83bfd688d0298f9.css?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/scaffolds.self-e7eb71832157a81215f3cee4353a6f4517b5c35a90c4aa78e751baa9211c37fd.css?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/myrages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/proof_attachments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/rages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-06-19 15:08:08 +0200
