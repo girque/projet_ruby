@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Date created</th>
       <th>Content</th>
       <th colspan="3"></th>
     </tr>
@@ -15,9 +16,9 @@
     <% @messages.each do |message| %>
       <tr>
         <td><%= message.title %></td>
+        <td><%= message.created_at %></td>
         <td><%= message.content %></td>
         <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -25,5 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Message', new_message_path %>

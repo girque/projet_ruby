@@ -66,21 +66,12 @@ class MessagesController < ApplicationController
 
     @rage = Rage.find(params[:id])
 
-    if current_user.id != @rage.user_id
-
-      respond_to do |format|
-        format.html { redirect_to rages_url, notice: 'Unbale to publish rage.' }
-        format.json { head :no_content }
-      end
-
-      return
-
-    end
-
-    @rage.update_attribute(:state, 'published')
+    @message = Message.create(:title => "Rejected : " + @rage.title, :content => params[:content], :user_id => @rage.user_id)
+    @message.save
+    @rage.update_attribute(:state, 'waitingAmelioration')
 
     respond_to do |format|
-      format.html { redirect_to rages_url, notice: 'Rage was successfully published.' }
+      format.html { redirect_to rages_url, notice: 'Message envoyé et rage soumis à modification.' }
       format.json { head :no_content }
     end
   end
@@ -90,12 +81,27 @@ class MessagesController < ApplicationController
 
     @rage = Rage.find(params[:id])
 
-    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été refusé car elle ne respectait pas les conditions d'utilisations", :user_id => @rage.user_id)
+    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été refusé car elle ne respectait pas les conditions d'utilisations, vous pouvez la soummetre à nouveau", :user_id => @rage.user_id)
     @message.save
-    @rage.update_attribute(:state, 'rejected')
+    @rage.update_attribute(:state, 'waitingAmelioration')
 
     respond_to do |format|
       format.html { redirect_to rages_url, notice: 'Rage was successfully rejected.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # PUBLISH /rages/1/publish
+  def banRage
+
+    @rage = Rage.find(params[:id])
+
+    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été SUPPRIME car elle ne respectait pas les conditions d'utilisations", :user_id => @rage.user_id)
+    @message.save
+    @rage.update_attribute(:state, 'banned')
+
+    respond_to do |format|
+      format.html { redirect_to rages_url, notice: 'Rage was successfully deleted.' }
       format.json { head :no_content }
     end
   end

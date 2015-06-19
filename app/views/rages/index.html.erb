@@ -14,6 +14,7 @@
 
   <tbody>
     <% @rages.each do |rage| %>
+      <% if rage.state.to_s == 'published'.to_s %>
       <tr>
         <td><%= rage.title %></td>
         <td><%= rage.description %></td>
@@ -23,22 +24,73 @@
         <% if rage.state.to_s == 'draft'.to_s %>
             <td><%= link_to 'Publish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <% if rage.state.to_s == 'waitingAmelioration'.to_s %>
+            <td><%= link_to 'Republish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 	<% end %>
 	<% if @admin %>
 		<td><%= link_to 'Show', rage %></td>
-		<td><%= link_to 'Destroy', rage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% if rage.state.to_s == 'published'.to_s %>
-                <td></td>
-            <td><%= link_to 'DemandeModif', askModif_path(rage), data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                <%= form_tag(askModif_path(rage), method: :get) do %>
+                    <%= text_field_tag :content %>
+                    <%= submit_tag 'Ask for modification', name: nil %>
+                <% end %>
+                  </td>
             <td><%= link_to 'Rejected', rejectedRage_path(rage), data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
+            <td><%= link_to 'Ban', rejectedRage_path(rage), data: { confirm: 'Are you sure?' } %></td>
 	<% end %>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
+
+<% if @admin %>
+
+    <h1>Listing pending rages</h1>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Picture</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @rages.each do |rage| %>
+      <% if rage.state.to_s == 'republished'.to_s %>
+          <tr>
+            <td><%= rage.title %></td>
+            <td><%= rage.description %></td>
+            <td><%= rage.picture %></td>
+            <% if user_signed_in? %>
+                <td><%= link_to 'Republish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+
+                <td><%= link_to 'Show', rage %></td>
+
+                    <td>
+                      <%= form_tag(askModif_path(rage), method: :get) do %>
+                          <%= text_field_tag :content %>
+                          <%= submit_tag 'Ask for modification', name: nil %>
+                      <% end %>
+                    </td>
+                    <td><%= link_to 'Rejected', rejectedRage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to 'Ban', rejectedRage_path(rage), data: { confirm: 'Are you sure?' } %></td>
+
+
+            <% end %>
+          </tr>
+      <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>
+
 
 <%= link_to 'New Rage', new_rage_path %>
