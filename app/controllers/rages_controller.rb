@@ -7,6 +7,7 @@ class RagesController < ApplicationController
   def index
     if current_user
       @user = User.find(current_user.id)
+      @participations = Participation.where(user_id: current_user.id)
       if @user.admin?
         @admin = true
       end

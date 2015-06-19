@@ -21,8 +21,16 @@
         <td><%= rage.picture %></td>
 	<% if user_signed_in? %>
             <% if rage.user_id!=@user.id %>
-		        <td><%= link_to 'Participate', participations_path(:rage_id => rage.id), method: :create %></td>
-            <% end %>
+                <% @toDisplay = true %>
+                <% @participations.each do |participation| %>
+                    <% if participation.rage_id == rage.id %>
+                        <% @toDisplay = false %>
+                    <% end %>
+                <% end %>
+                <% if @toDisplay %>
+                    <td><%= link_to 'Participate', participations_path(:rage_id => rage.id), method: :create %></td>
+                <% end %>
+      <% end %>
         <% if rage.state.to_s == 'draft'.to_s %>
             <td><%= link_to 'Publish', publish_rage_path(rage), data: { confirm: 'Are you sure?' } %></td>
         <% end %>
