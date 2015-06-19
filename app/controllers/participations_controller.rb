@@ -22,7 +22,7 @@ class ParticipationsController < ApplicationController
         format.html { redirect_to Participation, notice: 'Participation was successfully recorded.' }
         #format.json { render :show, status: :created, location: @rage }
       else
-        format.html { render :index }
+        format.html { render :index , notice: 'Participation was not recorded.' }
         format.json { render json: @participation.errors, status: :unprocessable_entity }
       end
     end

@@ -34,9 +34,11 @@ class RagesController < ApplicationController
   # POST /rages.json
   def create
     @rage = Rage.new(rage_params)
+    @rage.user_id = current_user.id
     @rage.state = 'draft'
     respond_to do |format|
       if @rage.save
+
         format.html { redirect_to @rage, notice: 'Rage was successfully created.' }
         format.json { render :show, status: :created, location: @rage }
       else
