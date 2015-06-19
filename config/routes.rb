@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :myrages
   resources :proof_attachments
   resources :dysfunctions
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   root :to => redirect('/rages')
 
   get 'rages/:id/publish' => 'rages#publish', as: :publish_rage
+  get 'messages/:id/modif' => 'messages#askModif', as: :askModif
+  get 'rages/:id/rejected' => 'messages#rejectedRage', as: :rejectedRage
+  get 'rages/:id/banned' => 'messages#banRage', as: :banRage
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
