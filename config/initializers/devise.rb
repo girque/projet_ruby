@@ -240,6 +240,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :twitter, 'hrAGOuqRjtI52jiBMiS3P9nVw', 'KglNqjcUeegvlARV4yPgkxDAi3ccyckBsJ0GSODWZYeRnWoNcr'
+  config.omniauth :facebook, '660126430789332', '5cde48d4bb3d5e40a2f18afa12d11d96'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

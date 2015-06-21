@@ -57,4 +57,4 @@ gem 'carrierwave'
 gem 'cancan'
 
 gem 'omniauth-twitter'
-
+gem 'omniauth-facebook'
