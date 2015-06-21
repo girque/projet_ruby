@@ -42,7 +42,7 @@ class ProofAttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @proof_attachment.update(proof_attachment_params)
-        format.html { redirect_to @proof_attachment.post, notice: 'Proof attachment was successfully updated.' }
+        format.html { redirect_to @proof_attachment, notice: 'Proof attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @proof_attachment }
       else
         format.html { render :edit }

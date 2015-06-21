@@ -24,15 +24,11 @@
 	    <%= f.label :picture %><br>
 	    <%= f.file_field :picture %>
 	  </div>
-	  <div class="field>
-	   <%= f.label :dysfunction %><br>
-	   <%= f.file_field :files, multiple: true %>
-	  </div>
-   <%= f.fields_for :proof_attachments do |p| %>
-     <div class="field">
-       <%= p.label :file %><br>
-       <%= p.file_field :path, :multiple => true, :required => true ,name: "proof_attachments[path][]" %>
-     </div>
+      <%= f.fields_for :proof_attachments do |p| %>
+      <div class="field">
+        <%= p.label :dysfunction %><br>
+        <%= p.file_field :path, :multiple => true, :required => true ,name: "proof_attachments[path][]" %>
+      </div>
    <% end %>
 	  <div class="actions">
 	    <%= f.submit %>

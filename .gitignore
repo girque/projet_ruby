@@ -8,8 +8,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-log/*.log
-/log/development.log
+/log/*.log
 /config/database.yml
 
 ##rubyMine
