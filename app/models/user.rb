@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.nickname
-      user.email = auth.email
+      user.email = auth.info.email
     end
   end
 

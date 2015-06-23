@@ -1,7 +1,14 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<% if @user.provider = "twitter" %>
+  <% if @user.email.blank? %>
+  <% else %>
+    <%= devise_error_messages! %>  
+  <% end %>
+<% else %>
   <%= devise_error_messages! %>
+<% end %>  
 
   <div class="field">
     <%= f.label :email %><br />
