@@ -1,6 +1,10 @@
 <h1>Editing Rage</h1>
 
-<%= render 'form' %>
 
+<% if @rage.user_id == @user_id %>
+    <%= render 'form' %>
+<% else %>
+    <p>Vous ne pouvez pas éditer cette Rage</p>
+<% end %>
 <%= link_to 'Show', @rage %> |
 <%= link_to 'Back', rages_path %>

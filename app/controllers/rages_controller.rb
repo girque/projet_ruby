@@ -1,4 +1,5 @@
 class RagesController < ApplicationController
+  require 'net/smtp'
   before_action :set_rage, only: [:show, :edit, :update, :destroy]
   before_filter :check_user_logged_in!, :except => [:show, :index]
 
@@ -30,6 +31,7 @@ class RagesController < ApplicationController
 
   # GET /rages/1/edit
   def edit
+    @user_id = current_user.id
   end
 
   # POST /rages
@@ -40,9 +42,14 @@ class RagesController < ApplicationController
     @rage.state = 'draft'
     respond_to do |format|
       if @rage.save
-        params[:proof_attachments]['path'].each do |a|
-          @proof_attachment = @rage.proof_attachments.create!(:path => a, :rage_id => @rage.id)
+        if !params[:proof_attachments].nil?
+          params[:proof_attachments]['path'].each do |a|
+            @proof_attachment = @rage.proof_attachments.create!(:path => a, :rage_id => @rage.id)
+          end
         end
+
+
+
         format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
         format.json { render :show, status: :ok, location: @rage }
 
@@ -128,7 +135,7 @@ class RagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rage_params
-      params.require(:rage).permit(:title, :description, :picture, )
+      params.require(:rage).permit(:title, :description, :picture)
     end
     def check_user_logged_in! # if admin is not logged in, user must be logged in
         authenticate_user! 
