@@ -56,6 +56,7 @@ gem 'carrierwave'
 #rights management bundle
 gem 'cancan'
 
+gem 'twitter'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'koala'
