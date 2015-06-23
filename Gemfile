@@ -58,3 +58,4 @@ gem 'cancan'
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'koala'
