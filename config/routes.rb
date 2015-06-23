@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :proof_attachments
   resources :dysfunctions
   resources :rages
-  devise_for :users
+  devise_for :users , controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :participations
   root :to => redirect('/rages')
 
