@@ -6,6 +6,18 @@ class User < ActiveRecord::Base
   has_many :dysfunctions
   has_many :messages
 
+  def facebook_api
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil
+  end
+
+  def fb_post(message)
+    facebook { |fb| fb.put_wall_post(message) }
+  end  
+
   def admin?
       admin
   end
@@ -15,7 +27,11 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.nickname
-      user.email = auth.email
+      user.email = auth.info.email
+      user.oauth_token = auth.credentials.token
+      if !auth.credentials.expires_at.nil?
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at)      
+      end
     end
   end
 
