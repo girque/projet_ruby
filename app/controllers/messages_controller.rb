@@ -81,7 +81,7 @@ class MessagesController < ApplicationController
 
     @rage = Rage.find(params[:id])
 
-    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été refusé car elle ne respectait pas les conditions d'utilisations, vous pouvez la soummetre à nouveau", :user_id => @rage.user_id)
+    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été refusée car elle ne respectait pas les conditions d'utilisations, vous pouvez la soumettre à nouveau", :user_id => @rage.user_id)
     @message.save
     @rage.update_attribute(:state, 'waitingAmelioration')
 
@@ -96,7 +96,7 @@ class MessagesController < ApplicationController
 
     @rage = Rage.find(params[:id])
 
-    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été SUPPRIME car elle ne respectait pas les conditions d'utilisations", :user_id => @rage.user_id)
+    @message = Message.create(:title => "Rejected : " + @rage.title, :content => "Votre réclamation a été supprimée car elle ne respectait pas les conditions d'utilisations", :user_id => @rage.user_id)
     @message.save
     @rage.update_attribute(:state, 'banned')
 
@@ -107,13 +107,13 @@ class MessagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def message_params
-      params.require(:message).permit(:title, :content)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def message_params
+    params.require(:message).permit(:title, :content)
+  end
 end

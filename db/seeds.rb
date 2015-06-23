@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!([
+  {email: "admin@ruby.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 7, current_sign_in_at: "2015-06-21 16:59:26", last_sign_in_at: "2015-06-21 16:57:51", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: true, provider: nil, uid: nil, username: nil, oauth_token: nil, oauth_expires_at: nil},
+  {email: "gir@ruby.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 7, current_sign_in_at: "2015-06-21 17:15:02", last_sign_in_at: "2015-06-21 16:58:48", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: false, provider: nil, uid: nil, username: nil, oauth_token: nil, oauth_expires_at: nil},
+  {email: "jeje@ruby.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-06-21 17:18:30", last_sign_in_at: "2015-06-21 17:18:30", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: false, provider: nil, uid: nil, username: nil, oauth_token: nil, oauth_expires_at: nil},
+  {email: "qu.girard@yahoo.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-06-23 08:45:53", last_sign_in_at: "2015-06-23 08:45:53", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: false, provider: "facebook", uid: "883280508395487", username: nil, oauth_token: "CAAJYYalpZCtQBAGSiq3JbctrEyM9FoMlehJZAC21P51aIGVRt3GZALU18ERolAlZAF7E9Nkx9ZCazSoNf3z5X301Oa8HHmle6D3UlwW57jM7EBZAMB2PvA7ZBINLZCrYR7DJqmN3zvBrOQx7MZAlpE3TMhQ9TdDTSMNZBJJGfw8hXGAPeEiNjQj34TjKshv8UEHC9nWXvMUuopc6pmTBhcnfeS", oauth_expires_at: "2015-08-21 10:26:04"},
+  {email: "admin@admin.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-06-23 21:43:00", last_sign_in_at: "2015-06-23 21:43:00", current_sign_in_ip: "::1", last_sign_in_ip: "::1", admin: true, provider: nil, uid: nil, username: nil, oauth_token: nil, oauth_expires_at: nil}
+])

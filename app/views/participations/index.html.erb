@@ -2,28 +2,29 @@
 
 <h1>Listing my participations</h1>
 
-
 <table>
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Picture</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @rageList.each do |rage| %>
-      <tr>
-        <td><%= rage.title %></td>
-        <td><%= rage.description %></td>
-        <td><%= rage.picture %></td>
-	<% if user_signed_in? %>
-		<td><%= link_to 'Show', rage %></td>
-	<% end %>
-      </tr>
-    <% end %> 
+  <% if !@rageList.nil? %>
+      <% @rageList.each do |rage| %>
+          <tr>
+            <td><%= rage.title %></td>
+            <td><%= rage.description %></td>
+            <td><%= rage.picture %></td>
+            <% if user_signed_in? %>
+                <td><%= link_to 'Show', rage %></td>
+            <% end %>
+          </tr>
+      <% end %>
+  <% end %>
   </tbody>
 
 </table>
