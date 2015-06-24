@@ -56,6 +56,12 @@ gem 'carrierwave'
 #rights management bundle
 gem 'cancan'
 
+#social networks
+gem 'twitter'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'koala'
+
+#db autofilling
+gem 'seed_dump'
+gem 'sprig-reap'

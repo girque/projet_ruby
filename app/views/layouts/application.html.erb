@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="../../assets/bootstrap.css">
+  <link rel="stylesheet" href="../../assetsbootstrap-theme.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <style>
-  table th, table td, table tr{
-      padding:10px !important;
-  }
+    table th, table td, table tr {
+        padding: 10px !important;
+    }
 
 </style>
 <body>
@@ -30,63 +30,50 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class=""><a href="/rages">Rages</a></li>
-    <% if user_signed_in? %>
-	<li class=""><a href="/myrages">Mes rages</a></li>
-	<li class=""><a href="/participations">Mes participations</a></li>
-    <li class=""><a href="/messages">Mes messages</a></li>
-    <% end %>
+        <% if user_signed_in? %>
+            <li class=""><a href="/myrages">Mes rages</a></li>
+            <li class=""><a href="/participations">Mes participations</a></li>
+            <li class=""><a href="/messages">Mes messages</a></li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="container">
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
+  <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <%= yield %>
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-<% if @current_user.provider == "twitter" %>
-  Logged in as <strong><%= @current_user.username %></strong>.
-<% else %>
-  Logged in as <strong><%= @current_user.email %></strong>.
-<% end %>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><br />
-  <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %><br />
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<% end %>
-</div>
+  <p class="navbar-text pull-right">
+    <% if user_signed_in? %>
+        <% if current_user.provider == "twitter" %>
+            Logged in as <strong>@<%= current_user.username %></strong>
+        <% elsif current_user.provider == "facebook"%>
+            Logged in with Facebook
+        <% else %>
+            Logged in as <strong><%= current_user.email %></strong>
+
+        <% end %>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+    <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %><br/>
+        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %><br/>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <% end %>
+    </div>
 
 <footer>
   <div class="container">
     Rage SNCF 2015
   </div>
 </footer>
-<script src="//railsgirls.com/assets/bootstrap.js"></script>
-<script>
-    $(function() {
-
-        $('.navbar li').click(function(e) {
-            $('.navbar li.active').removeClass('active');
-            var $this = $(this);
-            if (!$this.hasClass('active')) {
-                $this.addClass('active');
-            }
-        });
-    });
-
-</script>
-
+<script src="../../assets/javascripts/bootstrap.js"></script>
 </body>
-
-
 </html>
