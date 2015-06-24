@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :dysfunctions
   has_many :messages
 
   def facebook_api
@@ -27,7 +26,11 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.nickname
-      user.email = auth.info.email
+      if user.provider == "twitter" && auth.info.email.nil?
+        user.email = "rages@rages.com"
+      else
+        user.email = auth.info.email
+      end
       user.oauth_token = auth.credentials.token
       if !auth.credentials.expires_at.nil?
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)      
@@ -57,5 +60,13 @@ class User < ActiveRecord::Base
       super
     end
   end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil
+  end    
 
 end

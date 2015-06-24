@@ -48,8 +48,6 @@ class RagesController < ApplicationController
           end
         end
 
-
-
         format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
         format.json { render :show, status: :ok, location: @rage }
 
@@ -122,12 +120,13 @@ class RagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to rages_url, notice: 'Rage was successfully published.' }
       format.json { head :no_content }
+      current_user.facebook { |fb| fb.put_wall_post('I published a new rage "' + @rage.title + '"' + " à l'adresse " + rages_url )}
     end
-
 
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_rage
       @rage = Rage.find(params[:id])
