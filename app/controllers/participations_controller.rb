@@ -10,8 +10,14 @@ class ParticipationsController < ApplicationController
       end
       @count = @rageList.count
 
-      #envoi d'un mail
-if  @count >= 10 && @count < 11
+      Twitterbot.update("10 participation")
+
+
+      if  @count >= 10 && @count < 11
+#tweet
+  Twitterbot.update("10 participations enregistrées")
+
+#envoi d'un mail
     message = <<EOF
 From: infres6 <infres6@gmail.com>
 To: user <user@gmail.com>

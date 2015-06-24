@@ -138,6 +138,6 @@ class RagesController < ApplicationController
       params.require(:rage).permit(:title, :description, :picture)
     end
     def check_user_logged_in! # if admin is not logged in, user must be logged in
-        authenticate_user! 
+        authenticate_user!
     end
 end
