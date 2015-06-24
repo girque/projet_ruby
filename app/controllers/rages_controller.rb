@@ -48,8 +48,6 @@ class RagesController < ApplicationController
           end
         end
 
-
-
         format.html { redirect_to @rage, notice: 'Rage was successfully updated.' }
         format.json { render :show, status: :ok, location: @rage }
 

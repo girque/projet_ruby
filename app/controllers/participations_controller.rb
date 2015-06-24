@@ -19,13 +19,7 @@ class ParticipationsController < ApplicationController
 
     respond_to do |format|
       if @participation.save
-
-        participationList = Participation.where(user_id: @participation.user_id)
-        @rageList = Array.new()
-        participationList.find_each do |participation|
-          @rageList << Rage.find(participation.rage_id)
-        end
-        @count = @rageList.count
+        @count = Participation.where(:rage_id => params[:rage_id]).count()
 
         if  @count == 10
         #envoi d'un mail
