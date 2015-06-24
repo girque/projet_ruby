@@ -44,6 +44,15 @@ EOF
         end
 
         #tweet
+        begin
+          Twitterbot.update("10 participations enregistrées pour la rage " + params[:rage_id])
+
+        rescue Twitter::Error
+          redirect_to root_path, :alert => "Hey Loser, Twitter says you cannot post same twice"
+
+        rescue Exception => error
+          redirect_to root_path, :alert => "An unknown error occured"
+        end
 
         format.html { redirect_to Participation, notice: 'Participation was successfully recorded.' }
         #format.json { render :show, status: :created, location: @rage }
